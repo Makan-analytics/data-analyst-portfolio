@@ -23,7 +23,18 @@ import matplotlib.pyplot as plt
 # =========================
 # 6. Visualization
 # =========================
-product_analysis["revenue"].plot(kind="bar")
+# Analyse par produit
+product_analysis = df.groupby("product")["revenue"].sum()
+
+print("Chiffre d'affaires par produit :")
+print(product_analysis)
+
+# Graphique
+product_analysis.plot(kind="bar")
+plt.title("Chiffre d'affaires par produit")
+plt.ylabel("Revenue")
+plt.show()
+
 plt.title("Revenue by product")
 plt.xlabel("Product")
 plt.ylabel("Revenue")
