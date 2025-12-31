@@ -18,3 +18,13 @@ print("\nChiffre d'affaires total :", total_revenue)
 revenue_by_product = df.groupby("product")["revenue"].sum()
 print("\nChiffre d'affaires par produit :")
 print(revenue_by_product)
+import matplotlib.pyplot as plt
+
+# =========================
+# 6. Visualization
+# =========================
+product_analysis["revenue"].plot(kind="bar")
+plt.title("Revenue by product")
+plt.xlabel("Product")
+plt.ylabel("Revenue")
+plt.show()
