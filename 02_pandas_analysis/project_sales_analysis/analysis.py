@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 # 1. Charger les données
 df = pd.read_csv("data.csv")
@@ -14,29 +15,22 @@ df["revenue"] = df["quantity"] * df["price"]
 total_revenue = df["revenue"].sum()
 print("\nChiffre d'affaires total :", total_revenue)
 
-# 5. Chiffre d'affaires par produit
+# 5. Chiffre d'affaires par produit (UNE SEULE FOIS)
 revenue_by_product = df.groupby("product")["revenue"].sum()
 print("\nChiffre d'affaires par produit :")
 print(revenue_by_product)
-import matplotlib.pyplot as plt
 
 # =========================
-# 6. Visualization
+# 6. Visualisation
 # =========================
-# Analyse par produit
-product_analysis = df.groupby("product")["revenue"].sum()
+plt.figure(figsize=(8, 5))
 
-print("Chiffre d'affaires par produit :")
-print(product_analysis)
-
-# Graphique
-product_analysis.plot(kind="bar")
-plt.title("Chiffre d'affaires par produit")
-plt.ylabel("Revenue")
-plt.show()
+revenue_by_product.plot(kind="bar")
 
 plt.title("Revenue by product")
 plt.xlabel("Product")
 plt.ylabel("Revenue")
-plt.savefig("revenue_by_product.png")
+
+plt.tight_layout()
+plt.savefig("revenue_by_product.png", dpi=120)
 plt.show()
