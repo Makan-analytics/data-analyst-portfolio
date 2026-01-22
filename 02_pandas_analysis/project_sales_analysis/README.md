@@ -20,6 +20,11 @@ The dataset contains sales transactions with:
 ## Tools Used
 - Python
 - Pandas
+## Visualization
+
+Revenue by product:
+
+![Revenue by product](revenue_by_product.png)
 
 ## Key Skills Demonstrated
 - Data cleaning and feature engineering
